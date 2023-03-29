@@ -1,3 +1,11 @@
+<script>
+
+	import Navbar from "$lib/features/navbar/Navbar.svelte";
+
+</script>
+
+<Navbar></Navbar>
+
 <slot />
 
 <style global lang="postcss">
@@ -7,3 +15,5 @@
 	@tailwind components;
 	@tailwind utilities;
 </style>
+
+

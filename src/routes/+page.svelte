@@ -1,11 +1,8 @@
 <script>
-	import About from "$lib/about/About.svelte";
+	import About from "$lib/features/about/About.svelte";
+	import Intro from "$lib/features/intro/Intro.svelte";
 
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-
-
-
-
+<Intro></Intro>
 <About></About>

@@ -1,7 +1,7 @@
 import colors from "./colors";
 import measures from "./measures";
 
-export default{
+export default {
     colors : colors,
     measures : measures,
 }
