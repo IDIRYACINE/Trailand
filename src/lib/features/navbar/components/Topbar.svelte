@@ -9,7 +9,7 @@
 
 	<div id="topbar-content">
 		<ul>
-			<li><a href="#about">About</a></li>
+			<li><a href="/">About</a></li>
 			<li><a href="/findMovie">Find Movie</a></li>
 			<li><a href="/topMovies">Top Movies</a></li>
 		</ul>
