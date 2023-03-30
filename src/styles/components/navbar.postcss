@@ -1,35 +1,29 @@
-
-
-#topbar{
-    display : flex;
-    flex-direction : row;
-    justify-content : space-between;
-    color : $text-primary;
-    padding : 0 $nav-padding-sides;
+#topbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: $text-primary;
+	padding: $nav-padding-sides $nav-padding-sides 0;
 }
-
 
 #topbar-leading {
-    flex : 1;
-    max-height : $nav-height;
+	flex: 1;
+	max-height: $nav-height;
 
-    & img{
-        max-width : $nav-logo-width;
-    }
-
+	& img {
+		max-width: $nav-logo-width;
+	}
 }
-
 
 #topbar-trailing {
-    flex : 1;
+	flex: 1;
 }
 
-
 #topbar-content {
-    flex : 1;
-    & ul{
-        display:flex;
-        flex-direction : row;
-        justify-content : space-around;
-    }
+	flex: 1;
+	& ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
 }

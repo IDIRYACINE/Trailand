@@ -1,9 +1,44 @@
+#about {
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0 $nav-padding-sides 0 0;
 
+	background-image: url('images/background-2.jpg');
 
-#about{
-    height : 90vh;
-    display : flex;
-    flex-direction : column;
-    justify-content : flex-end;
-    align-items : center;
+	.first-half {
+		flex: 3;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+
+		.image-container {
+			width: 100%;
+			height: 100%;
+			position: relative;
+
+			#overwatch-logo {
+				width: 100%;
+				height: 100%;
+			}
+
+			&::before {
+				@mixin image-filter-black;
+			}
+		}
+	}
+
+	.second-half {
+		flex: 2;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+
+		justify-content: center;
+		align-items: center;
+	}
 }
