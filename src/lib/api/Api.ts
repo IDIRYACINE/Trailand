@@ -1,5 +1,5 @@
 import { jsonToMovieDetails, jsonToMoviePreview, type MovieDetails, type MoviePreview } from "$lib/domain/Movie";
-import {  movie_details_api, movies_top_api, movies_upcoming_api } from "./Secrets";
+import {  movie_details_api, movies_top_api, movies_upcoming_api, movie_poster_image_url } from "./Secrets";
 
 
 export async function getTopRatedMovies() : Promise<MoviePreview[]>{
@@ -11,7 +11,6 @@ export async function getTopRatedMovies() : Promise<MoviePreview[]>{
     return jsonToMoviePreview(movie);
   });
 
-  console.log(movies);
 
     return movies
 }
@@ -28,7 +27,11 @@ export async function getUpcomingMovies() : Promise<MoviePreview[]>{
     const data = (await res.json()).results;
 
     const movies = data.map((movie:unknown) => {
-        jsonToMoviePreview(movie);
+        return jsonToMoviePreview(movie);
     });
     return movies
+}
+
+export  function getMoviePosterImageUrl(image:string) : string {
+  return movie_poster_image_url(image);
 }

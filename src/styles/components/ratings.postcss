@@ -1,0 +1,26 @@
+.rating-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	.stars {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+	}
+}
+
+.star {
+	width: 1.5rem;
+	height: 1.5rem;
+	background: url('/assets/star.svg') no-repeat center;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.star.toggled {
+	background: url('/assets/star-toggled.svg') no-repeat center;
+	background-size: contain;
+}

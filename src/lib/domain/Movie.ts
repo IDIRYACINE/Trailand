@@ -111,3 +111,13 @@ export interface MoviesTrendState {
     movies: MoviePreview[];
     loading: boolean;
 }
+
+export interface MovieDetailsState {
+    movie: MovieDetails;
+    loading: boolean;
+}
+
+export interface UpcomingMoviesState {
+    movies: UpcomingMovie[];
+    loading: boolean;
+}
