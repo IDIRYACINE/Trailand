@@ -8,8 +8,8 @@
 <div class="top-movies-listveiw">
 
 	<div class="listview-content">
-		{#each movies as movie}
-			<MoviePreviewPoster {movie} />
+		{#each movies as movie,index}
+			<MoviePreviewPoster index ={index+1} {movie} />
 		{/each}
 	</div>
 

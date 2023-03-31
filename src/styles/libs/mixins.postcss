@@ -1,64 +1,74 @@
-
 @define-mixin thirteen {
-    @media screen and (max-width: $thirteenInch) {
-      @content;
-    }
-  }
-  
-  @define-mixin desktop {
-    @media screen and (max-width: $desktopWidth) {
-      @content;
-    }
-  }
-  
-  @define-mixin little-desktop {
-    @media screen and (max-width: $littleDesktop) {
-      @content;
-    }
-  }
-  
-  @define-mixin tablet {
-    @media screen and (max-width: $tabletWidth) {
-      @content;
-    }
-  }
-  
-  @define-mixin weird-medium {
-    @media screen and (max-width: $weirdNotTabletWidth) {
-      @content;
-    }
-  }
-  
-  @define-mixin phablet {
-    @media screen and (max-width: $phabletWidth) {
-      @content;
-    }
-  }
-  
-  @define-mixin mobile {
-    @media screen and (max-width: $mobileWidth) {
-      @content;
-    }
-  }
-  
-  @define-mixin small-mobile {
-    @media screen and (max-width: $small-mobile-width) {
-      @content;
-    }
-  }
-  
-  @define-mixin tiny-mobile {
-    @media screen and (max-width: $tiny-mobile-width) {
-      @content;
-    }
-  }
+	@media screen and (max-width: $thirteenInch) {
+		@content;
+	}
+}
 
-@define-mixin image-filter-black{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-        }
+@define-mixin desktop {
+	@media screen and (max-width: $desktopWidth) {
+		@content;
+	}
+}
+
+@define-mixin little-desktop {
+	@media screen and (max-width: $littleDesktop) {
+		@content;
+	}
+}
+
+@define-mixin tablet {
+	@media screen and (max-width: $tabletWidth) {
+		@content;
+	}
+}
+
+@define-mixin weird-medium {
+	@media screen and (max-width: $weirdNotTabletWidth) {
+		@content;
+	}
+}
+
+@define-mixin phablet {
+	@media screen and (max-width: $phabletWidth) {
+		@content;
+	}
+}
+
+@define-mixin mobile {
+	@media screen and (max-width: $mobileWidth) {
+		@content;
+	}
+}
+
+@define-mixin small-mobile {
+	@media screen and (max-width: $small-mobile-width) {
+		@content;
+	}
+}
+
+@define-mixin tiny-mobile {
+	@media screen and (max-width: $tiny-mobile-width) {
+		@content;
+	}
+}
+
+@define-mixin image-filter-black {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+@define-mixin overlay-blue {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 50, 0.5);
+	border-radius: 0.2rem;
+	z-index: 1;
+}
