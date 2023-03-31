@@ -4,19 +4,24 @@
 	justify-content: space-between;
 	color: $text-primary;
 	padding: $nav-padding-sides $nav-padding-sides 0;
+
+	position :relative;
 }
 
 #topbar-leading {
 	flex: 1;
-	max-height: $nav-height;
 
 	& img {
-		max-width: $nav-logo-width;
+		height: $nav-logo-height;
+		width: $nav-logo-width;
 	}
 }
 
 #topbar-trailing {
 	flex: 1;
+	display :flex;
+	flex-direction :row;
+	justify-content : flex-end;
 }
 
 #topbar-content {

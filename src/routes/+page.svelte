@@ -31,4 +31,9 @@
 <Intro />
 <About />
 
+
+{#if $upcomingMovies.loading}
+<MoviesUpcomingSlide movies={[]} />
+{:else}
 <MoviesUpcomingSlide movies={movies} />
+{/if}

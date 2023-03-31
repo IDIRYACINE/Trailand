@@ -15,9 +15,10 @@
 	<img class="movie-upcoming-poster__image" src={posterUrl} alt=""/>
 	<div class="movie-upcoming-poster__overlay" />
 
-	<RatingBar rating={movie.vote_average ?? 0}></RatingBar>
-	<h1 class="movie-title">{movie.title}</h1>
+	<div class="poster-section">
+	<RatingBar rating={movie.vote_average ?? 0}></RatingBar></div>
+	<div class="poster-section"><h1 class="movie-title">{movie.title}</h1></div>
 
-	<WatchLogoButton/>
+	<div class="poster-section"><WatchLogoButton/></div>
 
 </div>

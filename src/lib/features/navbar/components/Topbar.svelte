@@ -3,7 +3,7 @@
 
 <div id="topbar">
 	<div id="topbar-leading" >
-		<img id="topbar-logo" src="/favicon.png" alt="" />
+		<img id="topbar-logo" src="/assets/logo.svg" alt="" />
 
 	</div>
 
@@ -15,5 +15,7 @@
 		</ul>
 	</div>
 
-	<div id="topbar-trailing" />
+	<div id="topbar-trailing" >
+		
+	</div>
 </div>
