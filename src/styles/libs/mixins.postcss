@@ -63,6 +63,7 @@
 }
 
 @define-mixin overlay-blue {
+	content: '';
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -70,5 +71,15 @@
 	height: 100%;
 	background-color: rgba(0, 0, 50, 0.5);
 	border-radius: 0.2rem;
-	z-index: 1;
+	z-index: 100;			
+}
+
+@define-mixin h-seperator{
+	content: "";
+    position: absolute;
+	top: 50%;
+    transform: translateY(-50%);
+    width: 0.1rem;
+    height: 80%;
+    background-color: black;
 }

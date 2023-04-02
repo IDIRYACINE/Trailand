@@ -1,37 +1,64 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { jsonToMovieDetails, jsonToMoviePreview, type MovieDetails, type MoviePreview } from "$lib/domain/Movie";
-import {  movie_details_api, movies_top_api, movies_upcoming_api, movie_poster_image_url } from "./Secrets";
+import { movie_details_api, movies_top_api, movies_upcoming_api, movie_poster_image_url, isProduction } from "./Secrets";
+import TopRatedMocks from "./mocks/TopRatedMocks";
+import DetailsMocks from "./mocks/DetailsMocks";
+import UpcomingMocks from "./mocks/UpcomingMocks";
 
+export async function getTopRatedMovies(): Promise<MoviePreview[]> {
 
-export async function getTopRatedMovies() : Promise<MoviePreview[]>{
-  const res = await fetch(movies_top_api);
+  let data: any;
 
-  const data = (await res.json()).results;
+  if (isProduction) {
+    const res = await fetch(movies_top_api);
+    data = (await res.json()).results;
+  }
+  else {
+    data = TopRatedMocks.results
+  }
 
-  const movies = data.map((movie:unknown) => {
+  const movies = data.map((movie: unknown) => {
     return jsonToMoviePreview(movie);
   });
 
 
-    return movies
+  return movies
 }
 
-export async function getMovieDetails(id: number) : Promise<MovieDetails>{
+export async function getMovieDetails(id: number): Promise<MovieDetails> {
+
+  let data: unknown;
+
+  if (isProduction) {
     const res = await fetch(movie_details_api(id));
-    const data = await res.json();
+    data = await res.json();
+  }
 
-    return jsonToMovieDetails(data);
+  else {
+    data = DetailsMocks
+  }
+
+  return jsonToMovieDetails(data);
 }
 
-export async function getUpcomingMovies() : Promise<MoviePreview[]>{
+export async function getUpcomingMovies(): Promise<MoviePreview[]> {
+
+  let data: any;
+
+  if (isProduction) {
     const res = await fetch(movies_upcoming_api);
-    const data = (await res.json()).results;
+    data = (await res.json()).results;
+  }
+  else {
+    data = UpcomingMocks.results
+  }
 
-    const movies = data.map((movie:unknown) => {
-        return jsonToMoviePreview(movie);
-    });
-    return movies
+  const movies = data.map((movie: unknown) => {
+    return jsonToMoviePreview(movie);
+  });
+  return movies
 }
 
-export  function getMoviePosterImageUrl(image:string) : string {
+export function getMoviePosterImageUrl(image: string): string {
   return movie_poster_image_url(image);
 }

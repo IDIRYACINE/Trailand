@@ -1,0 +1,80 @@
+.movie-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	padding: calc($padding-large-extra / 2) calc($padding-large-extra / 2) 0
+		calc($padding-large-extra / 2);
+}
+
+.movie-detaills-container {
+	display: flex;
+	flex-direction: row;
+	height: $max-movie-detaills-height;
+	position: relative;
+
+	.overlay {
+		@mixin overlay-blue;
+	}
+
+	.movie-metadata {
+		display: flex;
+		flex-direction: row;
+		font-weight: $font-weight-bold;
+		position: relative;
+		margin-bottom: $spacing-small;
+
+		.movie-genre {
+			margin-left: 0.2rem;
+
+			.h-seperator {
+				@mixin h-seperator;
+			}
+			.genre-name {
+				margin-left: 0.2rem;
+			}
+		}
+	}
+	.movie-image-container {
+		position: relative;
+		flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+		&:before {
+			@mixin overlay-blue;
+		}
+
+        .watch-logo-button{
+            z-index: 1;
+            position: absolute;
+        }
+
+		.movie-image {
+			margin-right: $spacing-small;
+            position: absolute;
+            top:0;
+            left:0;
+            height: 100%;
+		}
+	}
+
+	.movie-detaills {
+		flex: 3;
+		background: $gradient-white-grey-metal;
+		color: black;
+		padding: $spacing-large;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.movie-title {
+			font-size: $font-size-large;
+			font-weight: $font-weight-bold;
+			margin-bottom: $spacing-small;
+		}
+	}
+}

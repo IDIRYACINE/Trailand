@@ -8,53 +8,65 @@
 	height: $upcoming-movie-poster-height;
 	width: $upcoming-movie-poster-width;
 
-	margin-right : $margin-small;
+	margin-right: $margin-small;
 
-	&:first-child{
-		margin-left : $margin-small;
+	&:first-child {
+		margin-left: $margin-small;
 	}
 
-	.movie-upcoming-poster__image {
-		z-index: 1;
-		width: 100%;
+	.movie-image-container {
+		position: relative;
 		height: 100%;
-		object-fit: cover;
-		border-radius: 0.2rem;
-		position: absolute;
+		width: 100%;
+
+		&:before {
+			@mixin overlay-blue;
+		}
+
+		.movie-image {
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 0.2rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 	}
 
-	.movie-upcoming-poster__overlay {
+	.poster-content {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 50, 0.5);
-		border-radius: 0.2rem;
-		z-index: 1;
-	}
+		display : flex;
+		flex-direction: column;
 
-	.poster-section{
-		flex : 1;
-		height: 100%;
-		display :flex;
-		flex-direction :column;
-		width : 100%;
-		justify-content :center;
-		align-items : flex-start;
-		padding : 0 $padding-small ;
-	}
+		.poster-section {
+			flex: 1;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 0 $padding-small;
+		}
 
-	.movie-title {
-		z-index: 3;
-	}
+		.movie-title {
+			z-index: 101;
+			font-weight: $font-weight-bold;
+		}
 
-	.watch-logo-button {
-		z-index: 3;
-	}
+		.watch-logo-button {
+			z-index: 101;
+		}
 
-	.rating-bar {
-		z-index: 3;
+		.rating-bar {
+			z-index: 101;
+		}
 	}
 }
 
@@ -102,7 +114,7 @@
 	justify-content: flex-start;
 	align-items: center;
 
-	height : 100vh;
+	height: 100vh;
 
 	.slide-button {
 		flex: 1;
@@ -117,6 +129,6 @@
 	.movies {
 		display: flex;
 		flex-direction: row;
-		margin-bottom : $margin-small;
+		margin-bottom: $margin-small;
 	}
 }
