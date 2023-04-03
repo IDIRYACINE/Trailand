@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getTopRatedMovies } from '$lib/api/Api';
 	import type { MoviePreview, MoviesTrendState } from '$lib/domain/Movie';
-	import MoviesTop from '$lib/features/top_movies/MoviesTop.svelte';
+	import MoviesTop from '$lib/features/movies_listview/MoviesListview.svelte';
 	import { onMount } from 'svelte';
 
 	import { setContext } from 'svelte';
@@ -35,4 +35,6 @@
 	setContext('topMovies', topMovies);
 </script>
 
+<div class="top-movies-page">
 <MoviesTop movies={loadedMovies} />
+</div>

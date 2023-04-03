@@ -6,7 +6,7 @@
 	export let movies: MoviePreview[];
 </script>
 
-<div class="top-movies-listveiw">
+<div class="top-movies-listview">
 	<div class="listview-content">
 		{#each movies as movie, index}
 			<MovieDetailsClickWrapper movieId={movie.id}>
