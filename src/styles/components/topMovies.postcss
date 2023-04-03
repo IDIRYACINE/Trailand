@@ -67,3 +67,61 @@
 		}
 	}
 }
+
+
+
+.movie-preview-poster-v2 {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: flex-start;
+	align-items: center;
+	height: 5rem;
+	margin-bottom: $margin;
+	position: relative;
+	color: white;
+
+	&.even{
+		@mixin gradient-blue;
+	}
+
+	&.odd{
+		@mixin gradient-red;
+	}
+
+	.movie-image-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		flex: 1;
+
+		.movie-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.poster-content {
+		flex: 5;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding-left: $margin;
+		padding-right: $margin;
+
+		.movie-title {
+			font-size: $font-poster-title-size;
+			text-align: start;
+		}
+
+		.rating-holder {
+			display: flex;
+			flex-direction: row;
+			width: 5rem;
+			justify-content: space-between;
+		}
+	}
+}

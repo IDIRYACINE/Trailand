@@ -5,17 +5,41 @@
 
 	import { getUpcomingMovies } from '$lib/api/Api';
 	import type { UpcomingMoviesState } from '$lib/domain/Movie';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	import { writable } from 'svelte/store';
 
+	let scrollIndex = 0;
+
+	let myWindow : Window;
+
 	const upcomingMovies = writable<UpcomingMoviesState>({ movies: [], loading: true });
+
+	function handleScroll(event) {
+		event.preventDefault();
+		const delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail))); 
+
+		let newScrollIndex :number;
+		if(delta < 0) {
+			newScrollIndex = (scrollIndex + 1) > 2 ? 2 : scrollIndex + 1;
+		} else {
+			newScrollIndex = (scrollIndex - 1) < 0 ? 0 : scrollIndex - 1;
+		}
+		
+		if(newScrollIndex === scrollIndex) return;
+
+		scrollIndex = newScrollIndex;
+
+		myWindow.scrollTo({
+			top: myWindow.innerHeight * scrollIndex,
+			behavior: 'smooth' 
+		});
+	}
 
 	onMount(() => {
 		if ($upcomingMovies.loading) {
 			getUpcomingMovies().then((movies) => {
 				upcomingMovies.update((oldState) => {
-
 					oldState.movies = [...movies];
 					oldState.loading = false;
 
@@ -23,6 +47,14 @@
 				});
 			});
 		}
+		myWindow = window;
+		myWindow.addEventListener('mousewheel', handleScroll);
+		myWindow.addEventListener('DOMMouseScroll', handleScroll);
+	});
+
+	onDestroy(() => {
+		myWindow.removeEventListener('mousewheel', handleScroll);
+		myWindow.removeEventListener('DOMMouseScroll', handleScroll);
 	});
 
 	$: movies = $upcomingMovies.movies;
@@ -31,9 +63,8 @@
 <Intro />
 <About />
 
-
 {#if $upcomingMovies.loading}
-<MoviesUpcomingSlide movies={[]} />
+	<MoviesUpcomingSlide movies={[]} />
 {:else}
-<MoviesUpcomingSlide movies={movies} />
+	<MoviesUpcomingSlide {movies} />
 {/if}
