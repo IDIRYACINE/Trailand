@@ -11,28 +11,28 @@
 
 	let scrollIndex = 0;
 
-	let myWindow : Window;
+	let myWindow: Window;
 
 	const upcomingMovies = writable<UpcomingMoviesState>({ movies: [], loading: true });
 
 	function handleScroll(event) {
 		event.preventDefault();
-		const delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail))); 
+		const delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
 
-		let newScrollIndex :number;
-		if(delta < 0) {
-			newScrollIndex = (scrollIndex + 1) > 2 ? 2 : scrollIndex + 1;
+		let newScrollIndex: number;
+		if (delta < 0) {
+			newScrollIndex = scrollIndex + 1 > 2 ? 2 : scrollIndex + 1;
 		} else {
-			newScrollIndex = (scrollIndex - 1) < 0 ? 0 : scrollIndex - 1;
+			newScrollIndex = scrollIndex - 1 < 0 ? 0 : scrollIndex - 1;
 		}
-		
-		if(newScrollIndex === scrollIndex) return;
+
+		if (newScrollIndex === scrollIndex) return;
 
 		scrollIndex = newScrollIndex;
 
 		myWindow.scrollTo({
 			top: myWindow.innerHeight * scrollIndex,
-			behavior: 'smooth' 
+			behavior: 'smooth'
 		});
 	}
 
@@ -53,8 +53,10 @@
 	});
 
 	onDestroy(() => {
-		myWindow.removeEventListener('mousewheel', handleScroll);
-		myWindow.removeEventListener('DOMMouseScroll', handleScroll);
+		if (myWindow !== undefined) {
+			myWindow.removeEventListener('mousewheel', handleScroll);
+			myWindow.removeEventListener('DOMMouseScroll', handleScroll);
+		}
 	});
 
 	$: movies = $upcomingMovies.movies;

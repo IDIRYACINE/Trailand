@@ -13,6 +13,7 @@
 	flex-direction: row;
 	height: $max-movie-detaills-height;
 	position: relative;
+	width : $max-movie-detaills-width;
 
 	.overlay {
 		@mixin overlay-blue;
@@ -25,12 +26,17 @@
 		position: relative;
 		margin-bottom: $spacing-small;
 
+		.movie-release-date {
+			margin-left: 0.2rem;
+		}
+
+		.metadata-container {
+			margin-left: 0.2rem;
+		}
+
 		.movie-genre {
 			margin-left: 0.2rem;
 
-			.h-seperator {
-				@mixin h-seperator;
-			}
 			.genre-name {
 				margin-left: 0.2rem;
 			}
@@ -39,26 +45,26 @@
 	.movie-image-container {
 		position: relative;
 		flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 
 		&:before {
 			@mixin overlay-blue;
 		}
 
-        .watch-logo-button{
-            z-index: 1;
-            position: absolute;
-        }
+		.watch-logo-button {
+			z-index: 1;
+			position: absolute;
+		}
 
 		.movie-image {
 			margin-right: $spacing-small;
-            position: absolute;
-            top:0;
-            left:0;
-            height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
 		}
 	}
 

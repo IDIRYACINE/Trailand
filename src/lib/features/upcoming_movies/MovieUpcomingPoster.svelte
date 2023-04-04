@@ -3,14 +3,22 @@
 	import type { UpcomingMovie } from '$lib/domain/Movie';
 	import RatingBar from '../shared/ratings/RatingBar.svelte';
 	import WatchLogoButton from '../shared/watch_logo_button/WatchLogoButton.svelte';
-	import MovieDetailsClickWrapper from '../shared/wrappers/MovieDetailsClickWrapper.svelte';
+	import MovieDetailsClickWrapperV2 from '../shared/wrappers/clickables/MovieDetailsClickWrapperV2.svelte';
+	import modal from '$lib/features/shared/wrappers/modal/CustomModalState';
+	import MovieDetaills from '../movie_detaills/MovieDetaills.svelte';
+	import { bind } from 'svelte-simple-modal';
 
 	export let movie: UpcomingMovie;
 
 	$: posterUrl = getMoviePosterImageUrl(movie.poster_path ?? '');
+
+	function onMovieClick(movie: UpcomingMovie){
+		modal.set(bind(MovieDetaills, {movie:movie}));
+	}
+
 </script>
 
-<MovieDetailsClickWrapper movieId={movie.id}>
+<MovieDetailsClickWrapperV2 handleClick={() => onMovieClick(movie)}>
 	<div class="movie-upcoming-poster">
 		<div class="movie-image-container"><img class="movie-image" src={posterUrl} alt="" /></div>
 
@@ -23,4 +31,4 @@
 			<div class="poster-section"><WatchLogoButton /></div>
 		</div>
 	</div>
-</MovieDetailsClickWrapper>
+</MovieDetailsClickWrapperV2>
