@@ -8,6 +8,27 @@
 	height: $upcoming-movie-poster-height;
 	width: $upcoming-movie-poster-width;
 
+	@media (--desktop){
+		width: $upcoming-movie-poster-width-medium;
+		color:yellow;
+	}
+
+	@media (--little-desktop){
+		width: $upcoming-movie-poster-width-desktop;
+		color:red;
+	}
+
+	@media (--weird-medium){
+		width: $upcoming-movie-poster-width-phablet;
+		color:green;
+	}
+
+	@media (--mobile){
+		width: $upcoming-movie-poster-width-tiny-phone;
+		color:blue;
+	}
+
+
 	margin-right: calc($margin-small / 4);
 
 	&:first-child {
@@ -118,11 +139,11 @@
 	height: 100vh;
 
 	.slide-button {
-		flex: 1;
+		width : 5rem;
 	}
 
 	.slide-content {
-		flex: 5;
+		width : 90rem;
 		display: flex;
 		flex-direction: column;
 	}

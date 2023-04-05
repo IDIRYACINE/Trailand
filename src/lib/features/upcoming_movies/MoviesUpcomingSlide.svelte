@@ -1,26 +1,60 @@
 <script lang="ts">
-	import type { UpcomingMovie, UpcomingMoviesState } from '$lib/domain/Movie';
+	import type { UpcomingMovie } from '$lib/domain/Movie';
+	import {  onMount } from 'svelte';
 	import SlideIndicator from './components/SlideIndicator.svelte';
 	import UpcomingMoviePoster from './MovieUpcomingPoster.svelte';
 
 	export let movies: UpcomingMovie[];
 
-	const maxDisplayedMovies = 5;
+	let maxDisplayedMovies = 5;
 
 	$: currentIndicatorIndex = 0;
-	$: upcomingMovies = getDisplayedMovies(currentIndicatorIndex + 1)
+	$: upcomingMovies = getDisplayedMovies(currentIndicatorIndex + 1 , maxDisplayedMovies);
 
-	function getDisplayedMovies(helperIndex :number): UpcomingMovie[] {
+	function updateMaxDisplayedMovies() {
+		const screenWidth = window.innerWidth;
 
-		let stopIndex = helperIndex * maxDisplayedMovies;
+		if (screenWidth <= 480) {
+			maxDisplayedMovies = 1;
+			console.log(screenWidth, maxDisplayedMovies);
+
+			return;
+		}
+
+		if (screenWidth <= 630) {
+			maxDisplayedMovies = 2;
+			console.log(screenWidth, maxDisplayedMovies);
+
+			return;
+		}
+
+		if (screenWidth <= 850) {
+			maxDisplayedMovies = 3;
+			console.log(screenWidth, maxDisplayedMovies);
+
+			return;
+		}
+
+		if (screenWidth <= 1024) {
+			maxDisplayedMovies = 4;
+			console.log(screenWidth, maxDisplayedMovies);
+
+			return;
+		}
+
+		maxDisplayedMovies = 5;
+	}
+
+	function getDisplayedMovies(helperIndex: number, helperMaxDisplayed:number): UpcomingMovie[] {
+		let stopIndex = helperIndex * helperMaxDisplayed;
 
 		stopIndex = stopIndex > movies.length ? movies.length : stopIndex;
 
-		let startIndex = stopIndex - maxDisplayedMovies;
+		let startIndex = stopIndex - helperMaxDisplayed;
 		startIndex = startIndex < 0 ? 0 : startIndex;
 
 		const result = movies.slice(startIndex, stopIndex);
-
+		console.log(result);
 		return result;
 	}
 
@@ -28,7 +62,6 @@
 		if (currentIndicatorIndex - 1 < 0) {
 			currentIndicatorIndex = 2;
 			return;
-
 		}
 		currentIndicatorIndex--;
 	}
@@ -40,6 +73,13 @@
 		}
 		currentIndicatorIndex++;
 	}
+
+	onMount(() => {
+		if (window !== undefined) {
+			updateMaxDisplayedMovies();
+			window.addEventListener('resize', updateMaxDisplayedMovies);
+		}
+	});
 </script>
 
 <div class="upcoming-movies-slide">
