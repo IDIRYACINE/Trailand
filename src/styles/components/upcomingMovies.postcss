@@ -129,14 +129,29 @@
 	padding: 0.2rem;
 }
 
+.upcoming-movies{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: url('images/background-2.jpg');
+	position: relative;
+
+	#tdmb-logo{
+		width: 5rem;
+		height: fit-content;
+		position: absolute;
+		bottom : 5%;
+	}
+
+}
 .upcoming-movies-slide {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	background-image: url('images/background-2.jpg');
-
-	height: 100vh;
+	width : 100%;
 
 	.slide-button {
 		width : 5rem;
