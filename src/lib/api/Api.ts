@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { jsonToMovieDetails, jsonToMoviePreview, type MovieDetails, type MoviePreview } from "$lib/domain/Movie";
-import { movie_details_api, movies_top_api, movies_upcoming_api, movie_poster_image_url, isProduction, movies_search_api } from "./Secrets";
+import { movie_details_api, movies_top_api, movies_upcoming_api, movie_poster_image_url, isProduction, movies_search_api, movie_trailler_api } from "./Secrets";
 import TopRatedMocks from "./mocks/TopRatedMocks";
 import DetailsMocks from "./mocks/DetailsMocks";
 import UpcomingMocks from "./mocks/UpcomingMocks";
@@ -80,4 +80,19 @@ export async function searchMovie(movieName :string) : Promise<MoviePreview[]> {
   });
   
   return movies
+}
+
+export async function getMovieTrailer(id: number): Promise<string> {
+  let data: any;
+  
+  if(isProduction){
+  const res = await fetch(movie_trailler_api(id));
+   data = (await res.json()).results[0];
+  }
+
+  else{
+    data = "6JnN1DmbqoU"
+  }
+
+  return data;
 }
