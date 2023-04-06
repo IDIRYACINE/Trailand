@@ -16,28 +16,23 @@
 
 		if (screenWidth <= 480) {
 			maxDisplayedMovies = 1;
-			console.log(screenWidth, maxDisplayedMovies);
 
 			return;
 		}
 
 		if (screenWidth <= 630) {
-			maxDisplayedMovies = 2;
-			console.log(screenWidth, maxDisplayedMovies);
 
 			return;
 		}
 
 		if (screenWidth <= 850) {
 			maxDisplayedMovies = 3;
-			console.log(screenWidth, maxDisplayedMovies);
 
 			return;
 		}
 
 		if (screenWidth <= 1024) {
 			maxDisplayedMovies = 4;
-			console.log(screenWidth, maxDisplayedMovies);
 
 			return;
 		}
@@ -54,7 +49,6 @@
 		startIndex = startIndex < 0 ? 0 : startIndex;
 
 		const result = movies.slice(startIndex, stopIndex);
-		console.log(result);
 		return result;
 	}
 
