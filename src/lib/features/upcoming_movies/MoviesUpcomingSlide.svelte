@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import SlideIndicator from './components/SlideIndicator.svelte';
 	import UpcomingMoviePoster from './MovieUpcomingPoster.svelte';
+	import resources from '../../../constants/resources';
 
 	export let movies: UpcomingMovie[];
 
@@ -21,7 +22,7 @@
 		}
 
 		if (screenWidth <= 630) {
-
+			maxDisplayedMovies = 2;
 			return;
 		}
 
@@ -78,7 +79,9 @@
 
 <div class="upcoming-movies">
 	<div class="upcoming-movies-slide">
-		<button class="slide-button" on:click={(e) => slideLeft()}>Previous</button>
+		<button class="slide-button" on:click={(e) => slideLeft()}>
+			<img class="prev-button" src={resources.nextButton} alt="prev-button" />
+		</button>
 
 		<div class="slide-content">
 			<div class="movies">
@@ -89,12 +92,12 @@
 			<SlideIndicator {currentIndicatorIndex} />
 		</div>
 
-		<button class="slide-button" on:click={(e) => slideRight()}>Next</button>
+		<button class="slide-button" on:click={(e) => slideRight()}>
+			<img class="next-button" src={resources.nextButton} alt="next-button" />
+		</button>
 	</div>
-	<a id="tdmb-logo" href="https://www.themoviedb.org"
-		><img
-			src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
-			alt=""
-		/></a
-	>
+
+	<a id="tdmb-logo" href="https://www.themoviedb.org">
+		<img src={resources.tdmbLogo} alt="" />
+	</a>
 </div>
