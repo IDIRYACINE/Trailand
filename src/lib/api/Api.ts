@@ -87,7 +87,7 @@ export async function getMovieTrailer(id: number): Promise<string> {
   
   if(isProduction){
   const res = await fetch(movie_trailler_api(id));
-   data = (await res.json()).results[0];
+   data = (await res.json()).results[0].key;
   }
 
   else{

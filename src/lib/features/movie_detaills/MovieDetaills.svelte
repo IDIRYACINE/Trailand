@@ -14,7 +14,14 @@
 
 	getMovieTrailer(movie.id).then((trailler) => {
 		traillerId = trailler;
+		console.log(trailler)
+
 	});
+
+
+	let backgroundStyle =
+		`background-image : url(${getMoviePosterImageUrl(movie.poster_path)});`;
+	
 
 	function toggleTrailler() {
 		isPlaying = !isPlaying;
@@ -30,12 +37,15 @@
 		<WatchLogoButton />
 			<img class="movie-image" src={getMoviePosterImageUrl(movie.poster_path)} alt="" />
 	</button>
-	<div class="movie-detaills">
+	<div class="movie-detaills" >
+		<div class="background" style={backgroundStyle} />
 		<span class="logo" />
+		<div class="movie-content">
 		{#if isPlaying}
 			<MovieTrailler movieId={traillerId} movieTitle={movie.title} />
 		{:else}
 			<MovieOverview {movie} />
 		{/if}
+	</div>
 	</div>
 </div>

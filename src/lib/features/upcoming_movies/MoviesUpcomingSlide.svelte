@@ -4,6 +4,7 @@
 	import SlideIndicator from './components/SlideIndicator.svelte';
 	import UpcomingMoviePoster from './MovieUpcomingPoster.svelte';
 	import resources from '../../../constants/resources';
+	import CopyrightFooter from '../shared/CopyrightFooter.svelte';
 
 	export let movies: UpcomingMovie[];
 
@@ -97,7 +98,6 @@
 		</button>
 	</div>
 
-	<a id="tdmb-logo" href="https://www.themoviedb.org">
-		<img src={resources.tdmbLogo} alt="" />
-	</a>
+	<CopyrightFooter></CopyrightFooter>
+
 </div>

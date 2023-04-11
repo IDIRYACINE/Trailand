@@ -23,7 +23,7 @@
 
 <div id="topbar">
 	<div id="topbar-leading">
-		<img id="topbar-logo" src="/assets/logo.svg" alt="" />
+		<a href="/"><img id="topbar-logo" src="/assets/logo.svg" alt="" /></a>
 	</div>
 
 	<div id="topbar-content">

@@ -7,6 +7,7 @@
 	<div class="first-half">
 		<div class="image-container">
 			<img id="overwatch-logo" src={resources.overwatchLogo} alt="" />
+
 		</div>
 	</div>
 
