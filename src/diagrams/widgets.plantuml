@@ -1,0 +1,63 @@
+
+@startuml widget
+
+
+package Svelte{
+    class SvelteWidget{}
+}
+
+package Ui {
+
+    class About {}
+
+    class Intro {}
+
+
+
+    class MovieOverview {}
+    class MovieTrailler {}
+    class MovieDetaills {}
+
+    class MoviePreview {}
+    class MoviesListView {}
+
+    class Topbar {}
+    class Navbar {}
+
+    class SearchMovies {}
+
+    class SlideIndicator {}
+    class MoviesUpcomingSlide {}
+    class MovieUpcomingPoster {}
+
+    class HomeLandPage {}
+    class MoviePage {}
+    class FindMoviePage {}
+    class TopMoviesPage {}
+}
+
+Ui --> SvelteWidget
+
+
+Navbar o-- Topbar
+HomeLandPage o-- Navbar
+HomeLandPage o-- About 
+HomeLandPage o-- Intro
+HomeLandPage o-- MoviesUpcomingSlide
+
+MoviesUpcomingSlide o-- SlideIndicator
+MoviesUpcomingSlide o-- MovieUpcomingPoster
+
+MovieUpcomingPoster o-- MoviePreview
+
+MoviePage o-- MovieOverview
+MoviePage o-- MovieTrailler
+MoviePage o-- MovieDetaills
+
+TopMoviesPage o-- MoviesListView
+FindMoviePage o-- SearchMovies
+
+
+
+
+@enduml

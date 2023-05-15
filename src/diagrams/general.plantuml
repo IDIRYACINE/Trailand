@@ -1,0 +1,21 @@
+@startuml General
+
+
+class Api {
+    + getTopRatedMovies() : Future<MoviePreview[]>
+    + getMovieDetails(id: number): Promise<MovieDetails>
+    + getUpcomingMovies(): Promise<MoviePreview[]>
+    + getMoviePosterImageUrl(image: string): string
+    + searchMovie(movieName :string) : Promise<MoviePreview[]>
+    + getMovieTrailer(id: number): Promise<string>
+
+}
+
+
+class Mapper {
+    +jsonToMoviePreview(json:Json) : MoviePreview;
+    +jsonToMovieDetails(json:Json) : MovieDetails;
+    +jsonToUpcomingMovie(json:Json) : UpcomingMovie;
+}
+
+@enduml

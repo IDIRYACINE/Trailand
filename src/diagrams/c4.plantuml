@@ -1,0 +1,17 @@
+@startuml C4
+
+component TrailLand
+
+component TDMB-Website{
+    () Api
+}
+
+component TDMB-DB{
+
+}
+
+TrailLand ..> Api : request
+Api ..> [TrailLand] : response
+Api - [TDMB-DB] : reads
+
+@enduml
