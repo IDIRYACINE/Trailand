@@ -7,33 +7,13 @@ A simple unviersity assignement regarding dyanmic websites . The idea behind it 
     - postcss
     - tdmb api
 
-## Creating a project
+## Setup
+    - provide your own api key at src/lib/api/Secrets.ts
+    - set production to true (optional)
+    - run bun dev
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
+![1](./preview/1.png)
+![2](./preview/2.png)
+![3](./preview/3.png)
+![4](./preview/4.png)    
